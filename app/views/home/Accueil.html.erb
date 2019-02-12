@@ -1,0 +1,131 @@
+<div class="container">
+
+	<hr class="my-2">
+	<div class="jumbotron p-0">
+
+		<!-- Card image -->
+		<div class="view overlay rounded-top">
+			<img src="https://mdbootstrap.com/img/Photos/Slides/img%20(134).jpg" class="img-fluid" alt="Sample image">
+			<a href="#">
+				<div class="mask rgba-white-slight"></div>
+			</a>
+		</div>
+
+		<!-- Card content -->
+		<div class="card-body text-center mb-3">
+
+			<!-- Title -->
+			<h1 class="card-title h3 my-4 display-3">Salut !</h1>
+			<!-- Text -->
+			<p class="lead">Ceci est le projet Gossip en MVC de Rails avec Bootswatch Materia</p>
+			<!-- Button -->
+			<a class="btn btn-primary btn-lg" href="#" role="button">Lire la suite ></a>
+
+		</div>
+
+	</div>
+	<hr class="my-2">
+
+	<button type="button" class="btn btn-primary btn-info" data-toggle="modal" data-target="#gossipModal">Nouvel Gossip</button>
+
+	<!-- The Modal -->
+	<div class="modal" id="gossipModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">
+						Ajout de Gossip
+					</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+
+				<!-- Modal body -->
+				<form>
+					<div class="modal-body">
+						<!-- <div class="form-group">
+							<div class="form-group">
+								<label class="col-form-label" for="inputDefault">Nom</label>
+								<input class="form-control" placeholder="Votre nom" id="nom" type="text">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-group">
+								<label class="col-form-label" for="inputDefault">Prénom</label>
+								<input class="form-control" placeholder="Votre prénom" id="prenom" type="text">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-group">
+								<label class="col-form-label" for="inputDefault">Ages</label>
+								<input class="form-control" placeholder="Votre ages" id="age" type="text">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="exampleInputEmail1">Adresse email</label>
+							<input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrer email" type="email">
+							<small id="emailHelp" class="form-text text-muted">veulliez entrer un adresse mail valide.</small>
+						</div> -->
+
+						<div class="form-group">
+							<div class="form-group">
+								<label class="col-form-label" for="inputDefault">Titre de votre gossip</label>
+								<input class="form-control" placeholder="Votre prénom" id="inputDefault" type="text">
+							</div>
+						</div>
+
+					</div>
+
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="exampleTextarea">Contenu...</label>
+							<textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+						</div>
+					</div>
+
+
+					<fieldset>
+						<button type="submit" class="btn btn-primary">Enregistrer</button>
+					</fieldset>
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+	<hr class="my-2">
+	<h1>Liste des Gossips</h1>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th scope="col">Users</th>
+				<th scope="col">Gossips</th>
+				<th scope="col">Date de création</th>
+				<th scope="col">Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @gossip.each do |i| %>
+			<tr class="table-primary">
+				<th scope="row">
+					<%=i.user.first_name%>
+				</th>
+				<td>
+					<%=i.title%>
+				</td>
+
+				<td>
+					<%=i.date%>
+				</td>
+				<td>
+					<a href="/<%=i.user.id%>"><button type="button" class="btn btn-primary btn-sm">Voir plus de détail</button></a>
+					
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table> 
+
+</div>
